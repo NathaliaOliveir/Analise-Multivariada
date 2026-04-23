@@ -1,3 +1,22 @@
 pip install mne
 #testinho
 #testinho2
+#IMPORTAR OS DADOS
+import numpy as np
+import mne
+import os
+import tensorpac
+import sklearn
+
+file_path = os.path.expanduser('/content/chb01_01.edf')
+
+print(f"Tentando carregar o arquivo de EEG de: {file_path}")
+
+try:
+    raw = mne.io.read_raw_edf(file_path, preload=True)
+
+    print("\n--- Carregamento Concluído ---")
+    print(raw)
+
+except FileNotFoundError:
+    print("\nERRO: Arquivo não encontrado! Verifique o caminho.")
